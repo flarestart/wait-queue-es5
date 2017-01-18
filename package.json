@@ -1,0 +1,27 @@
+{
+  "name": "wait-queue-es5",
+  "version": "1.0.0",
+  "description": "A javascript wait queue object handle infinity loop tasks more efficiently (ES5), can run in lower version of Node.js or browsers",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flarestart/wait-queue-es5.git"
+  },
+  "keywords": [
+    "await",
+    "queue",
+    "tasks"
+  ],
+  "author": "flarestart",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flarestart/wait-queue-es5/issues"
+  },
+  "homepage": "https://github.com/flarestart/wait-queue-es5#readme"
+}

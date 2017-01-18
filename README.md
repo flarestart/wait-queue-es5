@@ -122,7 +122,7 @@ This version has no event
 
   MIT
 
-[npm-image]: https://img.shields.io/npm/v/wait-queue.svg
-[npm-url]: https://npmjs.org/package/wait-queue
-[downloads-image]: http://img.shields.io/npm/dm/wait-queue.svg
-[downloads-url]: https://npmjs.org/package/wait-queue
+[npm-image]: https://img.shields.io/npm/v/wait-queue-es5.svg
+[npm-url]: https://npmjs.org/package/wait-queue-es5
+[downloads-image]: http://img.shields.io/npm/dm/wait-queue-es5.svg
+[downloads-url]: https://npmjs.org/package/wait-queue-es5
