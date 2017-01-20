@@ -4,6 +4,8 @@
  */
 'use strict';
 
+var LinkList = require('./libs/LinkList');
+
 function TerminateError(message) {
 	var error = new Error(message);
 	error.name = 'TerminateError';
@@ -12,7 +14,7 @@ function TerminateError(message) {
 }
 
 function WaitQueue() {
-	this.queue = [];
+	this.queue = new LinkList();
 	this.listeners = [];
 	this.terminated = false;
 }
@@ -22,7 +24,7 @@ WaitQueue.prototype.setImmediate = typeof setImmediate == 'function' ? setImmedi
 };
 
 WaitQueue.prototype._flush = function () {
-	var self = this
+	var self = this;
 	if (this.terminated) {
 		while (this.listeners.length > 0) {
 			var listener = this.listeners.shift();
@@ -48,18 +50,24 @@ WaitQueue.prototype.unshift = function (item) {
 	var success = false;
 	if (!this.terminated) {
 		success = true;
-		this.queue.unshift(item);
+		var self = this;
+		this.setImmediate(function () {
+			self.queue.unshift(item);
+			self._flush();
+		});
 	}
-	this._flush();
 	return success;
 };
 WaitQueue.prototype.push = function (item) {
 	var success = false;
 	if (!this.terminated) {
 		success = true;
-		this.queue.push(item);
+		var self = this;
+		this.setImmediate(function () {
+			self.queue.push(item);
+			self._flush();
+		});
 	}
-	this._flush();
 	return success;
 };
 WaitQueue.prototype.shift = function (callback) {
