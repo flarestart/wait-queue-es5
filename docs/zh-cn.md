@@ -33,6 +33,10 @@ $ npm run benchmark  # 运行性能测试
 
 ## 更新日志
 
+### 1.0.3
+
+ * 修复了一个bug, 当调用`empty()`或`terminate()`方法时，应该将`wq.queue`设置为了`LinkList`，实际上却设置为了`Array`
+
 ### 1.0.2
  
  * 更新中文文档并修订原来的文档中的一些错误

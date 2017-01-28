@@ -44,7 +44,7 @@ WaitQueue.prototype._flush = function () {
 	}
 };
 WaitQueue.prototype.empty = function () {
-	this.queue = [];
+	this.queue = new LinkList();
 };
 WaitQueue.prototype.unshift = function (item) {
 	var success = false;
@@ -104,7 +104,7 @@ WaitQueue.prototype.pop = function (callback) {
 };
 WaitQueue.prototype.terminate = function () {
 	this.terminated = true;
-	this.queue = [];
+	this.queue = new LinkList();
 	this._flush();
 };
 module.exports = WaitQueue;

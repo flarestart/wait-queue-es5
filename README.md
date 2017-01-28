@@ -33,6 +33,10 @@ Sample data in Macbook Pro MF839/8GB
 
 ## Changes Log
 
+### 1.0.3
+ 
+ * Fix a bug that set `wq.queue` to an `Array` when `empty()` or `terminate()` is called, should set `wq.queue` to an empty LinkList
+
 ### 1.0.2
  
  * Add a chinese document, and fix some problem in docs

@@ -1,6 +1,6 @@
 {
   "name": "wait-queue-es5",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A javascript wait queue object handle infinity loop tasks more efficiently (ES5), can run in lower version of Node.js or browsers",
   "main": "index.js",
   "directories": {
