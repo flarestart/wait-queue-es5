@@ -3,6 +3,8 @@
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
 
+[中文文档](./docs/zh-cn.md)
+
   A javascript wait queue object handle infinity loop tasks more efficiently (ES5), can run in lower version of Node.js or browsers
 
 ## Installation
@@ -30,6 +32,10 @@ Sample data in Macbook Pro MF839/8GB
     .shift() 106449.58100205069 /s
 
 ## Changes Log
+
+### 1.0.2
+ 
+ * Add a chinese document, and fix some problem in docs
 
 ### 1.0.1
 
@@ -98,20 +104,26 @@ setTimeout(function () {
 Add an item to the end of the queue, will return true if item added to the queue,
 if wait-queue is terminated, it will return false
 
-### wq.shift(function(item){...})
+### wq.shift(function(err, item){...})
 
 Get an item at the front of the queue, this is a callback method, if there's no item
 in the queue, it will wait
+
+`err` will always be `null` unless `wq.terminate()` is called, in this case, `err` will be an instance of `TerminateError`
+you can use `err.isTerminateQueue` to check if is a TerminateError
 
 ### wq.unshift(item)
 
 Put an item in front of the queue, will return true if item added to the queue,
 if wait-queue is terminated, it will return false
 
-### wq.pop(function(item){...})
+### wq.pop(function(err, item){...})
 
 Got an item at the end of the queue, this is a callback method, if there's no item
 in the queue, it will wait
+
+`err` will always be `null` unless `wq.terminate()` is called, in this case, `err` will be an instance of `TerminateError`
+you can use `err.isTerminateQueue` to check if is a TerminateError
 
 ### wq.terminate()
 
@@ -120,13 +132,13 @@ will receive a TerminateError, you can use e.isTerminateQueue to check
 
 ### wq.empty()
 
-Clear the queue that haven't assign
+Clear the queue that haven't `pop()` or `shift()`
 
 ## Properties
 
 ### wq.queue
 
-A plain javascript array, used to store the queue items
+A LinkList object, used to store the queue items
 
 ### wq.listeners
 
