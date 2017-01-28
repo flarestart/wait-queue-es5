@@ -3,7 +3,7 @@
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
 
-[中文文档](./docs/zh-cn.md)
+[中文文档](https://github.com/flarestart/wait-queue-es5/blob/master/docs/zh-cn.md)
 
   A javascript wait queue object handle infinity loop tasks more efficiently (ES5), can run in lower version of Node.js or browsers
 
